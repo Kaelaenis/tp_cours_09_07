@@ -1,6 +1,6 @@
 <?php 
 
-    require ("header.php");
+    include ("header.php");
     require ("class.php");
 
     // Création de mon tableau représentant les clients
@@ -30,7 +30,7 @@
     foreach($RSClients as $rowClients) {
         $rowClients["Client_ID"];
         $rowClients["Client_Nom"];
-        $rowClients["Client_Prénom"];
+        $rowClients["Client_Prenom"];
         $rowClients["Client_Adresse"];
 
 ?>
@@ -38,7 +38,7 @@
     <tr>
         <td><?php echo $rowClients["Client_ID"]; ?></td>
         <td><?php echo $rowClients["Client_Nom"]; ?></td>
-        <td><?php echo $rowClients["Client_Prénom"]; ?></td>
+        <td><?php echo $rowClients["Client_Prenom"]; ?></td>
         <td><?php echo $rowClients["Client_Adresse"]; ?></td>
     </tr>
 
@@ -47,4 +47,8 @@
 ?>
 
     </table>   
+    
+<?php
+include ("footer.php");
+?>
 
