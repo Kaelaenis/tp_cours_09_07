@@ -14,3 +14,27 @@
     }
 
 ?>
+
+    <br>
+    <h1> Clients de la société </h1>
+    <table class = "table">
+        <thead>
+            <td>ID</td>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Localisation</td>
+        </thead>
+
+<?php
+
+
+
+
+?>
+
+
+
+
+
+    </table>
+
