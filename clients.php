@@ -32,6 +32,8 @@
 
 <?php
 
+    // Boucle ForEach
+
                     foreach($RSClients as $rowClients) {
                         $rowClients["Client_ID"];
                         $rowClients["Client_Nom"];
