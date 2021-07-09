@@ -22,7 +22,8 @@
                         <th scope="col">Id</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Image</th>
-                        <th scope="col">Prix</th>
+                        <th scope="col">Prix TTC</th>
+                        <th scope="col">Prix HT</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +41,10 @@
                             <img src="img/<?php echo $donnees['Produit_Image']; ?>" width="100">
                         </td>
                         <td>
-                            <?php echo $donnees['Produit_Prix']; ?>
+                            <?php echo $donnees['Produit_Prix']." €"; ?>
+                        </td>
+                        <td>
+                            <?php echo $donnees['Produit_Prix']*0.8." €"; ?>
                         </td>
                     </tr>
             <?php } ?>
