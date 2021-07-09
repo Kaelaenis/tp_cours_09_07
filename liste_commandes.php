@@ -21,7 +21,8 @@ if(!$RSCommandes){
                     <tr>
                         <th scope="col">ID de la commande</th>
                         <th scope="col">Date de la commande</th>
-                        <th scope="col">Nom du client</th>
+                        <th scope='col'>Prix HT</th>
+                        <th scope='col'>Prix TTC (TVA 20%)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,13 +35,24 @@ if(!$RSCommandes){
                             die("Echec de la requête :".$RSClients->errorInfo());
                         }
 
-                        $rowRSClients = $RSClients -> fetch(PDO::FETCH_ASSOC);
 
+                        $RSPrix = "SELECT produits.Produit_Prix
+                                FROM commandes, cmd_pdt, produits 
+                                WHERE commandes.Commande_ID =".$rowRSCommandes["Commande_ID"]."
+                                AND cmd_pdt.Cmd_Pdt_Commande_ID = commandes.Commande_ID 
+                                AND produits.Produit_ID = cmd_pdt.Cmd_Pdt_Produit_ID";
+                        $RSPrix = $pdo->query($RSPrix);
+                        
+                        foreach($RSPrix as $value){
+                            $total += $value['Produit_Prix'];
+                        }
+                        
                     ?>
                         <tr>
                             <th scope="row"><?php echo $rowRSCommandes["Commande_ID"];?></th>
                             <td><a href="commandes.php?id=<?php echo $rowRSCommandes["Commande_ID"]; ?>"><?php echo $rowRSCommandes["Commande_Date"];?></a></td>
-                            <td><?php echo $rowRSClients["Client_Nom"]." ".$rowRSClients["Client_Prenom"]?></td>
+                            <td><?php echo $total*0.80; ?>€</td>
+                            <td><?php echo $total; ?>€</td>
                         </tr>
                     <?php } ?>
                 </tbody>
