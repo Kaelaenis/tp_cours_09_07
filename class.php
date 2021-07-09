@@ -7,7 +7,7 @@
 
     try{
         // Connexion à la base de données
-        $pdo = new PDO("mysql:host=".SERVER?"; dbname=".DBNAME."; charset=utf8", USER, PASSWORD);
+        $pdo = new PDO("mysql:host=".SERVER."; dbname=".DBNAME."; charset=utf8", USER, PASSWORD);
     }catch(PDOException $e){
         // Gestion des erreurs si erreur
         print("Erreur ! ".$e->getMessage());
