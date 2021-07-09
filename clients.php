@@ -42,7 +42,7 @@
 
                     <tr>
                         <th><?php echo $rowClients["Client_ID"]; ?></th>
-                        <td><a href = "blabla.php?id<?php echo $rowClients["Client_ID"]; ?>"><?php echo $rowClients["Client_Nom"]; ?></a></td>
+                        <td><a href = "commandes_par_client.php?id<?php echo $rowClients["Client_ID"]; ?>"><?php echo $rowClients["Client_Nom"]; ?></a></td>
                         <td><?php echo $rowClients["Client_Prenom"]; ?></td>
                         <td><?php echo $rowClients["Client_Adresse"]; ?></td>
                     </tr>
