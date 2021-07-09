@@ -21,8 +21,8 @@ if(!$RSCommandes){
                     <tr>
                         <th scope="col">ID de la commande</th>
                         <th scope="col">Date de la commande</th>
-                        <th scope='col'>Prix TTC</th>
                         <th scope='col'>Prix HT</th>
+                        <th scope='col'>Prix TTC (TVA 20%)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,8 +51,8 @@ if(!$RSCommandes){
                         <tr>
                             <th scope="row"><?php echo $rowRSCommandes["Commande_ID"];?></th>
                             <td><a href="commandes.php?id=<?php echo $rowRSCommandes["Commande_ID"]; ?>"><?php echo $rowRSCommandes["Commande_Date"];?></a></td>
-                            <td><?php echo $total; ?>€</td>
                             <td><?php echo $total*0.80; ?>€</td>
+                            <td><?php echo $total; ?>€</td>
                         </tr>
                     <?php } ?>
                 </tbody>

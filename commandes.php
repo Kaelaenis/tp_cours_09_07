@@ -16,14 +16,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <table class="table">
+            <table class="table"><br>
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Image</th>
-                        <th scope="col">Prix TTC</th>
-                        <th scope="col">Prix HT</th>
+                        <th scope='col'>Prix HT</th>
+                        <th scope='col'>Prix TTC (TVA 20%)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,10 +41,10 @@
                             <img src="img/<?php echo $donnees['Produit_Image']; ?>" width="100">
                         </td>
                         <td>
-                            <?php echo $donnees['Produit_Prix']; ?>€
+                            <?php echo $donnees['Produit_Prix']*0.80; ?>€
                         </td>
                         <td>
-                            <?php echo $donnees['Produit_Prix']*0.80; ?>€
+                            <?php echo $donnees['Produit_Prix']; ?>€
                         </td>
                     </tr>
             <?php } ?>
