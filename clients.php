@@ -15,40 +15,48 @@
         die("Échec de la requête : ".$RSClients->errorInfo());
     }
 
-    // Début du tableau
-
 ?>
-    <br>
-    <h1> Clients de la société </h1>
-    <table class = "table">
-        <thead>
-            <td>ID</td>
-            <td>Nom</td>
-            <td>Prénom</td>
-            <td>Localisation</td>
-        </thead>
+    <!-- Début du tableau -->
+
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-12">
+                <br>
+                    <table class = "table">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Localisation</th>
+                        </thead>
+
 <?php
 
-    foreach($RSClients as $rowClients) {
-        $rowClients["Client_ID"];
-        $rowClients["Client_Nom"];
-        $rowClients["Client_Prenom"];
-        $rowClients["Client_Adresse"];
+                    foreach($RSClients as $rowClients) {
+                        $rowClients["Client_ID"];
+                        $rowClients["Client_Nom"];
+                        $rowClients["Client_Prenom"];
+                        $rowClients["Client_Adresse"];
 
 ?>
 
-    <tr>
-        <td><?php echo $rowClients["Client_ID"]; ?></td>
-        <td><?php echo $rowClients["Client_Nom"]; ?></td>
-        <td><?php echo $rowClients["Client_Prenom"]; ?></td>
-        <td><?php echo $rowClients["Client_Adresse"]; ?></td>
-    </tr>
+                    <tr>
+                        <th><?php echo $rowClients["Client_ID"]; ?></th>
+                        <td><a href = "blabla.php?id<?php echo $rowClients["Client_ID"]; ?>"><?php echo $rowClients["Client_Nom"]; ?></a></td>
+                        <td><?php echo $rowClients["Client_Prenom"]; ?></td>
+                        <td><?php echo $rowClients["Client_Adresse"]; ?></td>
+                    </tr>
 
 <?php
-    }
+                    }
 ?>
 
-    </table>   
+                    </table>   
+
+            </div>
+        </div>
+    </div>
+
     
 <?php
 include ("footer.php");
