@@ -8,8 +8,8 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="commandes.php">Commandes</a>
-        <a class="nav-link" href="liste_commandes.php">Liste Commandes</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" href="liste_commandes.php">Liste des commandes</a>
+        <a class="nav-link" href="clients.php">Liste des clients</a>
       </div>
     </div>
   </div>
