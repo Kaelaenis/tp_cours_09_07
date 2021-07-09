@@ -21,8 +21,8 @@ if(!$RSCommandes){
                     <tr>
                         <th scope="col">ID de la commande</th>
                         <th scope="col">Date de la commande</th>
-                        <th scope='col'>Prix total</th>
-                        <th scope='col'>Prix Hors Taxes</th>
+                        <th scope='col'>Prix TTC</th>
+                        <th scope='col'>Prix HT</th>
                     </tr>
                 </thead>
                 <tbody>
