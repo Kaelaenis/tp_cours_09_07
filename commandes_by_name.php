@@ -23,6 +23,7 @@
                         <th scope="col">Nom</th>
                         <th scope="col">Image</th>
                         <th scope="col">Prix</th>
+                        <th scpoe="col">Prix total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,9 @@
                         </td>
                         <td>
                             <?php echo $donnees['Produit_Prix']; ?>
+                        </td>
+                        <td>
+
                         </td>
                     </tr>
             <?php } ?>

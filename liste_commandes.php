@@ -5,7 +5,7 @@
 
 <?php
 
-$sql = "SELECT * FROM commandes";
+$sql = "SELECT * FROM commandes WHERE Commande_Client_ID=".$_GET["id"];
 $RSCommandes = $pdo->query($sql);
 if(!$RSCommandes){
     die("Echec de la requête :".$RSCommandes->errorInfo());
