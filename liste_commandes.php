@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Liste des commandes</title>
-        <meta charset="utf-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    </head>
-    <body>
+
         <?php include("header.php"); ?>
         <?php require("class.php"); ?>
 
@@ -16,13 +9,44 @@
         if(!$RSCommandes){
             die("Echec de la requête :".$RSCommandes->errorInfo());
         }
-              
-        
 
-        foreach($RSCommandes as $rowRSCommandes){
-            echo $rowRSCommandes["Commande_Date"];
-        }
         ?>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID de la commande</th>
+                                <th scope="col">Date de la commande</th>
+                                <th scope="col">Nom du client</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach($RSCommandes as $rowRSCommandes){
+
+                                $client ="SELECT * FROM clients WHERE Client_ID =".$rowRSCommandes["Commande_Client_ID"];
+                                $RSClients = $pdo->query($client);
+                                if(!$RSClients){
+                                    die("Echec de la requête :".$RSClients->errorInfo());
+                                }
+
+                                $rowRSClients = $RSClients -> fetch(PDO::FETCH_ASSOC);
+
+                            ?>
+                                <tr>
+                                    <th scope="row"><?php echo $rowRSCommandes["Commande_ID"];?></th>
+                                    <td><?php echo $rowRSCommandes["Commande_Date"];?></td>
+                                    <td><?php echo $rowRSClients["Client_Nom"]." ".$rowRSClients["Client_Prenom"]?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 
 
