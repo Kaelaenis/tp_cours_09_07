@@ -1,5 +1,6 @@
 <?php include("header.php") ?>
 <?php include("class.php") ?>
+<?php $TitrePage="Commandes"; ?>
 <?php 
             $sql = "SELECT produits.Produit_ID, produits.Produit_Nom, produits.Produit_Image, produits.Produit_Prix
             FROM commandes, cmd_pdt, produits 
