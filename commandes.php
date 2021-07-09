@@ -1,18 +1,17 @@
 <?php include("header.php") ?>
 <?php include("class.php") ?>
 <?php 
-            $sql = "SELECT * FROM cmd_pdt WHERE Cmd_Pdt_Commande_ID=".$_GET['id'];
+            $sql = "SELECT produits.Produit_ID, produits.Produit_Nom, produits.Produit_Image, produits.Produit_Prix
+            FROM commandes, cmd_pdt, produits 
+            WHERE commandes.Commande_ID =".$_GET["id"]." 
+            AND cmd_pdt.Cmd_Pdt_Commande_ID = commandes.Commande_ID 
+            AND produits.Produit_ID = cmd_pdt.Cmd_Pdt_Produit_ID";
             $commandes = $pdo->query($sql);
             if (!$commandes){
                 die("Echec de la requête !".$commandes->errorInfo());
             }
             
     ?>
-<div class="container">
-    <h2>Commande N°
-        <?php echo $commandes['Cmd_Pdt_ID'] ?>
-    </h2>
-</div>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -28,21 +27,19 @@
                 <tbody>
             <?php 
             foreach($commandes as $donnees){
-                $sql = "SELECT Cmd_Pdt_Commande_ID FROM cmd_pdt ORDER BY DESC";
-                $ordre = $pdo->query($sql);
             ?>
                     <tr>
                         <th scope="row">
-                            <?php echo $donnees['Cmd_Pdt_Commande_ID']; ?>
+                            <?php echo $donnees['Produit_ID']; ?>
                         </th>
                         <td>
-                            <?php echo $donnees['Commande_Date']; ?>
+                            <?php echo $donnees['Produit_Nom']; ?>
                         </td>
                         <td>
-                            <?php echo $donnees['Commande_Client_ID']; ?>
+                            <img src="img/<?php echo $donnees['Produit_Image']; ?>" width="100">
                         </td>
                         <td>
-                            <?php echo $RSNom['Produit_Nom']; ?>
+                            <?php echo $donnees['Produit_Prix']; ?>
                         </td>
                     </tr>
             <?php } ?>
