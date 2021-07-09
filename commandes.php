@@ -1,13 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Liste des commandes</title>
-        <meta charset="utf-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    </head>
-    <body>
-        <?php include("header.php") ?>
-        bute
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </body>
-</html>
+<?php include("header.php") ?>
+    <?php 
+            $sql = "SELECT * FROM cmd_pdt";
+            $commandes = $pdo->query($sql);
+            if (!$commandes){
+                die("Echec de la requête !".$commandes->errorInfo());
+            }
+            
+    ?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($commandes as $donnees){ 
+            ?>
+            <tr>
+                <th scope="row"><?php echo $donnees['Cmd_Pdt_Produit_ID'] ?></th>
+                <td><?php echo $donnees['Commande_Date']; ?></td>
+                <td><?php echo $donnees['Commande_Client_ID']; ?></td>
+                <td><?php echo $RSNom['Produit_Nom']; ?></td>
+            </tr>
+           <?php } ?>
+        </tbody>
+    </table>
+<?php include("footer.php") ?>
