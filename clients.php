@@ -1,5 +1,7 @@
 <?php 
 
+    $TitrePage = "Clients";
+
     include ("header.php");
     require ("class.php");
 
