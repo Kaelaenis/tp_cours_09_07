@@ -4,8 +4,7 @@
 <?php 
             $sql = "SELECT produits.Produit_ID, produits.Produit_Nom, produits.Produit_Image, produits.Produit_Prix
             FROM commandes, cmd_pdt, produits 
-            WHERE commandes.Commande_ID =".$_GET["id"]." 
-            AND cmd_pdt.Cmd_Pdt_Commande_ID = commandes.Commande_ID 
+            WHERE commandes.Commande_ID =".$_GET["id"]."AND cmd_pdt.Cmd_Pdt_Commande_ID = commandes.Commande_ID 
             AND produits.Produit_ID = cmd_pdt.Cmd_Pdt_Produit_ID";
             $commandes = $pdo->query($sql);
             if (!$commandes){
