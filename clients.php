@@ -13,7 +13,10 @@
         die("Échec de la requête : ".$RSClients->errorInfo());
     }
 
+    // Début du tableau
+
 ?>
+
 
     <br>
     <h1> Clients de la société </h1>
@@ -27,7 +30,10 @@
 
 <?php
 
+    foreach($RSClients as $rowClients) {
 
+
+    }
 
 
 ?>
