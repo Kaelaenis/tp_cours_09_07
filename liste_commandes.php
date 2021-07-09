@@ -39,7 +39,7 @@ if(!$RSCommandes){
                     ?>
                         <tr>
                             <th scope="row"><?php echo $rowRSCommandes["Commande_ID"];?></th>
-                            <td><a href="commandes_par_date.php?id=<?php echo $rowRSCommandes["Commande_ID"]; ?>"><?php echo $rowRSCommandes["Commande_Date"];?></a></td>
+                            <td><a href="commandes.php?id=<?php echo $rowRSCommandes["Commande_ID"]; ?>"><?php echo $rowRSCommandes["Commande_Date"];?></a></td>
                             <td><?php echo $rowRSClients["Client_Nom"]." ".$rowRSClients["Client_Prenom"]?></td>
                         </tr>
                     <?php } ?>
