@@ -39,7 +39,7 @@
 
                     <tr>
                         <th><?php echo $rowClients["Client_ID"]; ?></th>
-                        <td><a href = "liste_commandes.php?id=<?php echo $rowClients["Client_ID"]; ?>"><?php echo $rowClients["Client_Nom"]; ?></a></td>
+                        <td><a href = "liste_commandes.php?id=<?php echo $rowClients["Client_ID"]; ?>"><?php echo $rowClients["Client_Nom"]; ?></a></td> <!--?id correspond au paramètre id-->
                         <td><?php echo $rowClients["Client_Prenom"]; ?></td>
                         <td><?php echo $rowClients["Client_Adresse"]; ?></td>
                     </tr>
