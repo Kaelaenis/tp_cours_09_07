@@ -6,7 +6,8 @@
             FROM commandes, cmd_pdt, produits 
             WHERE commandes.Commande_ID =".$_GET["id"]."
             AND cmd_pdt.Cmd_Pdt_Commande_ID = commandes.Commande_ID 
-            AND produits.Produit_ID = cmd_pdt.Cmd_Pdt_Produit_ID";
+            AND produits.Produit_ID = cmd_pdt.Cmd_Pdt_Produit_ID
+            ORDER BY produits.Produit_ID";
             $commandes = $pdo->query($sql);
             if (!$commandes){
                 die("Echec de la requête !".$commandes->errorInfo());
@@ -41,10 +42,10 @@
                             <img src="img/<?php echo $donnees['Produit_Image']; ?>" width="100">
                         </td>
                         <td>
-                            <?php echo $donnees['Produit_Prix']." €"; ?>
+                            <?php echo $donnees['Produit_Prix']*0.80." €"; ?>
                         </td>
                         <td>
-                            <?php echo $donnees['Produit_Prix']*0.8." €"; ?>
+                            <?php echo $donnees['Produit_Prix']." €"; ?>
                         </td>
                     </tr>
             <?php } ?>

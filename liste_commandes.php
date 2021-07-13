@@ -28,31 +28,36 @@ if(!$RSCommandes){
                 <tbody>
                     <?php
                     foreach($RSCommandes as $rowRSCommandes){
-
-                        $client ="SELECT * FROM clients WHERE Client_ID =".$rowRSCommandes["Commande_Client_ID"];
-                        $RSClients = $pdo->query($client);
-                        if(!$RSClients){
-                            die("Echec de la requête :".$RSClients->errorInfo());
-                        }
-
-
                         $RSPrix = "SELECT produits.Produit_Prix
                                 FROM commandes, cmd_pdt, produits 
                                 WHERE commandes.Commande_ID =".$rowRSCommandes["Commande_ID"]."
                                 AND cmd_pdt.Cmd_Pdt_Commande_ID = commandes.Commande_ID 
                                 AND produits.Produit_ID = cmd_pdt.Cmd_Pdt_Produit_ID";
-                        $RSPrix = $pdo->query($RSPrix);
+                        $RSPrix1 = $pdo->query($RSPrix);
                         
-                        foreach($RSPrix as $value){
+                        foreach($RSPrix1 as $value){
                             $total += $value['Produit_Prix'];
                         }
                         
                     ?>
                         <tr>
-                            <th scope="row"><?php echo $rowRSCommandes["Commande_ID"];?></th>
-                            <td><a href="commandes.php?id=<?php echo $rowRSCommandes["Commande_ID"]; ?>"><?php echo $rowRSCommandes["Commande_Date"];?></a></td>
-                            <td><?php echo $total*0.80; ?>€</td>
-                            <td><?php echo $total; ?>€</td>
+                            <th scope="row">
+                                <?php echo $rowRSCommandes["Commande_ID"];?>
+                            </th>
+                            <td>
+                                <a href="commandes.php?id=<?php echo $rowRSCommandes["Commande_ID"]; ?>">
+                                    <?php echo $rowRSCommandes["Commande_Date"];?>
+                                </a>
+                            </td>
+                            <td>
+                                <?php echo $total*0.80; ?>€
+                            </td>
+                            <td>
+                                <?php 
+                                    echo $total; 
+                                    $total = 0; 
+                                ?>€
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
